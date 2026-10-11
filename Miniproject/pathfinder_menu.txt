@@ -1,0 +1,12 @@
+PATHFINDER INPUT FORM
+=====================
+Fill in the values after the equals sign, save this file, then run PathFinder.
+
+PLAYER_NAME = Eshita
+
+ACTION = PLAY
+# Allowed actions: PLAY / LEARN
+
+LEVEL = 3
+# Allowed levels: 1 (Easy), 2 (Medium), 3 (Hard)
+# LEVEL is used only when ACTION = PLAY.
