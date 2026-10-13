@@ -102,49 +102,203 @@ public class PathFinder {
         return -1;
     }
 
-    static ArrayList<Integer> bfs(Level level, int start, int destination) {
-        boolean[] visited = new boolean[level.nodes.size()];
-        int[] parent = new int[level.nodes.size()];
-        Arrays.fill(parent, -1);
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(start);
-        visited[start] = true;
-        while (!queue.isEmpty()) {
-            int current = queue.remove();
-            if (current == destination) break;
-            for (int next : level.graph.get(current)) {
-                if (!visited[next]) {
-                    visited[next] = true;
-                    parent[next] = current;
-                    queue.add(next);
-                }
+
+static ArrayList<Integer> bfs(Level level, int start, int destination) {
+    boolean[] visited = new boolean[level.nodes.size()];
+    int[] parent = new int[level.nodes.size()];
+    Arrays.fill(parent, -1);
+
+    Queue<Integer> queue = new LinkedList<>();
+    ArrayList<Integer> path = new ArrayList<>();
+
+    queue.add(start);
+    visited[start] = true;
+
+    System.out.println("\n--- BFS STEP-BY-STEP ---");
+    System.out.println("BFS uses a Queue (FIFO).");
+    System.out.println("Start node: " + level.nodes.get(start).id);
+    System.out.println("Queue: " + level.nodes.get(start).id);
+
+    int step = 1;
+
+    while (!queue.isEmpty()) {
+        System.out.println("\nStep " + step++);
+
+        int current = queue.remove();
+        String currentId = level.nodes.get(current).id;
+
+        System.out.println("Dequeue node: " + currentId);
+
+        if (current == destination) {
+            System.out.println("Destination reached!");
+            break;
+        }
+
+        System.out.println("Checking neighbours of " + currentId + ":");
+
+        for (int next : level.graph.get(current)) {
+            String nextId = level.nodes.get(next).id;
+
+            if (!visited[next]) {
+                visited[next] = true;
+                parent[next] = current;
+                queue.add(next);
+
+                System.out.println(
+                    "  " + nextId + " is unvisited."
+                );
+                System.out.println(
+                    "  Mark visited, set parent[" + nextId
+                    + "] = " + currentId
+                );
+                System.out.println("  Enqueue " + nextId);
+            } else {
+                System.out.println(
+                    "  " + nextId + " is already visited. Skip."
+                );
             }
         }
-        ArrayList<Integer> path = new ArrayList<>();
-        if (!visited[destination]) return path;
-        for (int current = destination; current != -1; current = parent[current]) path.add(current);
-        Collections.reverse(path);
+
+        System.out.print("Queue now: ");
+        printQueue(level, queue);
+
+        System.out.print("Visited nodes: ");
+        printVisited(level, visited);
+    }
+
+    if (!visited[destination]) {
+        System.out.println("\nDestination is unreachable.");
         return path;
     }
 
-    static void dfs(Level level, int start) {
-        boolean[] visited = new boolean[level.nodes.size()];
-        Stack<Integer> stack = new Stack<>();
-        stack.push(start);
-        System.out.print("DFS traversal: ");
-        while (!stack.isEmpty()) {
-            int current = stack.pop();
-            if (!visited[current]) {
-                visited[current] = true;
-                System.out.print(level.nodes.get(current).id + " ");
-                for (int i = level.graph.get(current).size() - 1; i >= 0; i--) {
-                    int next = level.graph.get(current).get(i);
-                    if (!visited[next]) stack.push(next);
-                }
+    System.out.println("\nReconstructing path using parent array:");
+
+    for (int current = destination;
+         current != -1;
+         current = parent[current]) {
+        path.add(current);
+    }
+
+    Collections.reverse(path);
+
+    System.out.print("Shortest path: ");
+    displayPath(level, path);
+
+    return path;
+}
+
+static void dfs(Level level, int start) {
+    boolean[] visited = new boolean[level.nodes.size()];
+    Stack<Integer> stack = new Stack<>();
+
+    stack.push(start);
+
+    System.out.println("\n--- DFS STEP-BY-STEP ---");
+    System.out.println("DFS uses a Stack (LIFO).");
+    System.out.println("Start node: " + level.nodes.get(start).id);
+
+    System.out.print("Initial stack: ");
+    printStack(level, stack);
+
+    int step = 1;
+
+    while (!stack.isEmpty()) {
+        System.out.println("\nStep " + step++);
+
+        int current = stack.pop();
+        String currentId = level.nodes.get(current).id;
+
+        System.out.println("Pop node: " + currentId);
+
+        if (visited[current]) {
+            System.out.println(
+                "Already visited. Skip processing."
+            );
+            continue;
+        }
+
+        visited[current] = true;
+
+        System.out.println("Visit node: " + currentId);
+
+        if (level.nodes.get(current).type.equals("DEAD END")) {
+            System.out.println("This node is a DEAD END.");
+        } else if (level.nodes.get(current).type.equals("DESTINATION")) {
+            System.out.println("This node is the DESTINATION.");
+        }
+
+        System.out.println("Checking neighbours of " + currentId + ":");
+
+        for (int i = level.graph.get(current).size() - 1;
+             i >= 0; i--) {
+
+            int next = level.graph.get(current).get(i);
+            String nextId = level.nodes.get(next).id;
+
+            if (!visited[next]) {
+                stack.push(next);
+                System.out.println("  Push " + nextId);
+            } else {
+                System.out.println(
+                    "  " + nextId + " already visited. Skip."
+                );
             }
         }
-        System.out.println();
+
+        System.out.print("Stack now: ");
+        printStack(level, stack);
+
+        System.out.print("Visited nodes: ");
+        printVisited(level, visited);
     }
+
+    System.out.println("\nDFS traversal completed.");
+}
+
+
+static void printQueue(Level level, Queue<Integer> queue) {
+    System.out.print("[");
+    boolean first = true;
+
+    for (int node : queue) {
+        if (!first) System.out.print(", ");
+        System.out.print(level.nodes.get(node).id);
+        first = false;
+    }
+
+    System.out.println("]");
+}
+
+static void printStack(Level level, Stack<Integer> stack) {
+    System.out.print("[Bottom ");
+
+    for (int i = 0; i < stack.size(); i++) {
+        System.out.print(level.nodes.get(stack.get(i)).id);
+
+        if (i < stack.size() - 1) {
+            System.out.print(", ");
+        }
+    }
+
+    System.out.println(" Top]");
+}
+
+static void printVisited(Level level, boolean[] visited) {
+    System.out.print("{");
+
+    boolean first = true;
+
+    for (int i = 0; i < visited.length; i++) {
+        if (visited[i]) {
+            if (!first) System.out.print(", ");
+
+            System.out.print(level.nodes.get(i).id);
+            first = false;
+        }
+    }
+
+    System.out.println("}");
+}
 
     static void displayPath(Level level, ArrayList<Integer> path) {
         if (path.isEmpty()) {
@@ -241,19 +395,180 @@ public class PathFinder {
         if (!won) System.out.println("Choose Play again from the form file to restart this level.");
     }
 
-    static void learn() {
-        System.out.println("\n===== LEARN PATHFINDER =====");
-        System.out.println("Goal: Start at A, solve math riddles, and reach DESTINATION.");
-        System.out.println("A correct answer gives points and follows its mapped edge.");
-        System.out.println("A wrong answer loses points and follows a different mapped edge.");
-        System.out.println("Some edges lead to a DEAD END, where the attempt ends.");
-        System.out.println("Adjacency List: stores the neighbours of each graph node.");
-        System.out.println("BFS: uses a queue to find a route with the fewest edges.");
-        System.out.println("DFS: uses a stack to explore reachable nodes.");
-        System.out.println("ArrayList: stores nodes and the player's path.");
-        System.out.println("Searching: finds a node by its ID.");
-        System.out.println("Scoring: correct answers, wrong-answer penalties, hints, moves, and winning bonus.");
+
+static void learn(int levelNumber) {
+    Level level = createLevel(levelNumber);
+
+    while (true) {
+        System.out.println("\n================================");
+        System.out.println("       LEARN PATHFINDER");
+        System.out.println("================================");
+        System.out.println("Selected Level: " + levelNumber);
+        System.out.println("1. Display Level Graph");
+        System.out.println("2. Display Adjacency List");
+        System.out.println("3. Demonstrate BFS");
+        System.out.println("4. Demonstrate DFS");
+        System.out.println("5. Search for a Node");
+        System.out.println("6. Find Shortest Route");
+        System.out.println("7. Learn Graph Concepts");
+        System.out.println("0. Exit");
+        System.out.print("Enter choice: ");
+
+        String input = sc.nextLine().trim();
+
+        if (input.equals("0")) {
+            System.out.println("Exiting learning mode.");
+            return;
+        }
+
+        if (!input.matches("[1-7]")) {
+            System.out.println("Invalid choice. Try again.");
+            continue;
+        }
+
+        int choice = Integer.parseInt(input);
+
+        switch (choice) {
+            case 1:
+                System.out.println("\n--- GAME GRAPH ---");
+                displayGraph(level);
+                break;
+
+            case 2:
+                System.out.println("\n--- ADJACENCY LIST ---");
+                displayGraph(level);
+                break;
+
+            case 3:
+                System.out.println("\n--- BFS DEMONSTRATION ---");
+
+                ArrayList<Integer> bfsPath =
+                    bfs(level, level.start, level.destination);
+
+                if (bfsPath.isEmpty()) {
+                    System.out.println(
+                        "Destination is unreachable."
+                    );
+                } else {
+                    System.out.print("BFS shortest route: ");
+                    displayPath(level, bfsPath);
+                }
+                break;
+
+            case 4:
+                System.out.println("\n--- DFS DEMONSTRATION ---");
+                dfs(level, level.start);
+                break;
+
+            case 5:
+                System.out.print("Enter node ID (A, B, C...): ");
+                String id = sc.nextLine().trim();
+
+                int index = searchNode(level, id);
+
+                if (index != -1) {
+                    Node node = level.nodes.get(index);
+
+                    System.out.println("Node found!");
+                    System.out.println("ID: " + node.id);
+                    System.out.println("Type: " + node.type);
+
+                    if (!node.question.isEmpty()) {
+                        System.out.println(
+                            "Question: " + node.question
+                        );
+                    }
+
+                    System.out.println("Connected nodes: ");
+
+                    for (int next : level.graph.get(index)) {
+                        System.out.print(
+                            level.nodes.get(next).id + " "
+                        );
+                    }
+
+                    System.out.println();
+                } else {
+                    System.out.println("Node not found.");
+                }
+                break;
+
+
+            case 6:
+                System.out.println("\n--- FIND SHORTEST ROUTE USING BFS ---");
+
+                System.out.print("Enter source node ID (A, B, C...): ");
+                String sourceId = sc.nextLine().trim();
+
+                System.out.print("Enter destination node ID (A, B, C...): ");
+                String destinationId = sc.nextLine().trim();
+
+                int source = searchNode(level, sourceId);
+                int destination = searchNode(level, destinationId);
+
+                if (source == -1 || destination == -1) {
+                    System.out.println("Invalid source or destination node ID.");
+                    break;
+                }
+
+                System.out.println(
+                    "\nFinding shortest path from "
+                    + level.nodes.get(source).id
+                    + " to "
+                    + level.nodes.get(destination).id
+                );
+
+                ArrayList<Integer> route = bfs(level, source, destination);
+
+                if (!route.isEmpty()) {
+                    System.out.println("Shortest route found!");
+                    System.out.println(
+                        "Number of edges: " + (route.size() - 1)
+                    );
+                } else {
+                    System.out.println(
+                        "No path exists between the selected nodes."
+                    );
+                }
+                break;
+
+            case 7:
+                System.out.println("\n--- GRAPH CONCEPTS ---");
+                System.out.println(
+                    "Vertex: Each question or special location."
+                );
+                System.out.println(
+                    "Edge: A connection between two nodes."
+                );
+                System.out.println(
+                    "Directed graph: Edges represent directional movement."
+                );
+                System.out.println(
+                    "Adjacency list: Stores each node's neighbours."
+                );
+                System.out.println(
+                    "BFS: Explores nodes using a queue."
+                );
+                System.out.println(
+                    "DFS: Explores nodes using a stack."
+                );
+                System.out.println(
+                    "Path: A sequence of connected nodes."
+                );
+                System.out.println(
+                    "Reachability: Whether a node can be reached."
+                );
+                System.out.println(
+                    "Dead end: A node where the attempt terminates."
+                );
+                System.out.println(
+                    "Gameplay movement follows the selected answer's "
+                    + "predefined nextNodes entry."
+                );
+                break;
+        }
     }
+}
 
     public static void main(String[] args) {
         Map<String, String> form = readForm();
@@ -269,7 +584,15 @@ public class PathFinder {
         System.out.println("Player: " + playerName);
         System.out.println("Action selected in pathfinder_menu.txt: " + action);
         if (action.equals("LEARN")) {
-            learn();
+            if (action.equals("LEARN")) {
+                if (levelNumber < 1 || levelNumber > 3) {
+                    System.out.println(
+                        "Invalid level. Set LEVEL to 1, 2, or 3."
+                    );
+                } else {
+                    learn(levelNumber);
+                }
+            }
         } else if (action.equals("PLAY")) {
             if (levelNumber < 1 || levelNumber > 3) {
                 System.out.println("Invalid level in pathfinder_menu.txt. Set LEVEL to 1, 2, or 3.");

@@ -4,7 +4,7 @@ Fill in the values after the equals sign, save this file, then run PathFinder.
 
 PLAYER_NAME = Eshita
 
-ACTION = PLAY
+ACTION = LEARN
 # Allowed actions: PLAY / LEARN
 
 LEVEL = 3
