@@ -1,0 +1,617 @@
+===== PATHFINDER =====
+Player: Eshita
+Action selected in pathfinder_menu.txt: PLAY
+
+--------------------------------
+Player: Eshita | Level: 3
+Current node: A | Score: 0 | Moves: 0
+Riddle: What is 15% of 200?
+1. 25
+2. 30
+3. 35
+H. Hint (-5 points)   P. Show path   Q. Quit level
+Choose an answer: 2
+Correct answer! +10 points.
+
+--------------------------------
+Player: Eshita | Level: 3
+Current node: C | Score: 10 | Moves: 1
+Riddle: What is the square root of 196?
+1. 12
+3. 16
+H. Hint (-5 points)   P. Show path   Q. Quit level
+Choose an answer: 2
+Correct answer! +10 points.
+
+--------------------------------
+Player: Eshita | Level: 3
+Current node: G | Score: 20 | Moves: 2
+Riddle: What is 11 squared?
+1. 111
+2. 121
+3. 131
+H. Hint (-5 points)   P. Show path   Q. Quit level
+Choose an answer: 2
+Correct answer! +10 points.
+
+--------------------------------
+Current node: H | Score: 30 | Moves: 3
+Congratulations! You reached the DESTINATION and won!
+
+Your path: A -> C -> G -> H
+Moves: 3 | Hints used: 0
+Level score: 71
+Total score: 71
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+===== PATHFINDER =====
+Player: Eshita
+Action selected in pathfinder_menu.txt: PLAY
+
+--------------------------------
+Player: Eshita | Level: 2
+Current node: A | Score: 0 | Moves: 0
+Riddle: What is (6 * 4) - 5?
+1. 19
+2. 24
+3. 21
+H. Hint (-5 points)   P. Show path   Q. Quit level
+Choose an answer: 3
+Wrong answer. Taking an alternate path to node D.
+
+--------------------------------
+Player: Eshita | Level: 2
+Current node: D | Score: 0 | Moves: 1
+You reached a DEAD END. This attempt is over.
+
+Your path: A -> D
+Moves: 1 | Hints used: 0
+Level score: 0
+Total score: 0
+Choose Play again from the form file to restart this level.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+===== PATHFINDER =====
+Player: Eshita
+Action selected in pathfinder_menu.txt: PLAY
+
+--------------------------------
+Player: Eshita | Level: 1
+Current node: A | Score: 0 | Moves: 0
+Riddle: What is 5 * 3?
+1. 15
+2. 10
+3. 20
+H. Hint (-5 points)   P. Show path   Q. Quit level
+Choose an answer: 2
+Wrong answer. Taking an alternate path to node C.
+
+--------------------------------
+Player: Eshita | Level: 1
+Current node: C | Score: 0 | Moves: 1
+Riddle: What is 2 raised to the power 3?
+1. 6
+3. 10
+H. Hint (-5 points)   P. Show path   Q. Quit level
+Choose an answer: 2
+Correct answer! +10 points.
+
+--------------------------------
+Player: Eshita | Level: 1
+Current node: E | Score: 10 | Moves: 2
+Riddle: What is 7 + 6?
+1. 12
+2. 13
+3. 14
+H. Hint (-5 points)   P. Show path   Q. Quit level
+Choose an answer: 2
+Correct answer! +10 points.
+
+--------------------------------
+Player: Eshita | Level: 1
+Current node: F | Score: 20 | Moves: 3
+Congratulations! You reached the DESTINATION and won!
+
+Your path: A -> C -> E -> F
+Moves: 3 | Hints used: 0
+Level score: 61
+Total score: 61
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+===== PATHFINDER =====
+Player: Eshita
+Action selected in pathfinder_menu.txt: PLAY
+
+--------------------------------
+Player: Eshita | Level: 1
+Current node: A | Score: 0 | Moves: 0
+Riddle: What is 5 * 3?
+1. 15
+2. 10
+3. 20
+H. Hint (-5 points)   P. Show path   Q. Quit level
+Choose an answer: 1
+Correct answer! +10 points.
+
+--------------------------------
+Player: Eshita | Level: 1
+Current node: B | Score: 10 | Moves: 1
+Riddle: What is 12 / 3?
+1. 4
+2. 5
+3. 6
+H. Hint (-5 points)   P. Show path   Q. Quit level
+Choose an answer: H
+Math Hint: Think about how many groups of 3 make 12.
+
+--------------------------------
+Player: Eshita | Level: 1
+Current node: B | Score: 5 | Moves: 1
+Riddle: What is 12 / 3?
+1. 4
+2. 5
+3. 6
+H. Hint (-5 points)   P. Show path   Q. Quit level
+Choose an answer: 1
+Correct answer! +10 points.
+
+--------------------------------
+Player: Eshita | Level: 1
+Current node: E | Score: 15 | Moves: 2
+Riddle: What is 7 + 6?
+1. 12
+3. 14
+H. Hint (-5 points)   P. Show path   Q. Quit level
+Choose an answer: 13
+Invalid answer choice.
+
+--------------------------------
+Player: Eshita | Level: 1
+Current node: E | Score: 15 | Moves: 2
+Riddle: What is 7 + 6?
+1. 12
+2. 13
+3. 14
+H. Hint (-5 points)   P. Show path   Q. Quit level
+Choose an answer: 2
+Correct answer! +10 points.
+
+--------------------------------
+Player: Eshita | Level: 1
+Current node: F | Score: 25 | Moves: 3
+Congratulations! You reached the DESTINATION and won!
+
+Your path: A -> B -> E -> F
+Moves: 3 | Hints used: 1
+Level score: 61
+Total score: 61
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+===== PATHFINDER =====
+Player: Eshita
+Action selected in pathfinder_menu.txt: LEARN
+
+================================
+       LEARN PATHFINDER
+================================
+Selected Level: 1
+1. Display Level Graph
+2. Display Adjacency List
+3. Demonstrate BFS
+4. Demonstrate DFS
+5. Search for a Node
+6. Find Shortest Route
+7. Learn Graph Concepts
+0. Exit
+Enter choice: 1
+
+--- GAME GRAPH ---
+
+Graph Adjacency List:
+A (START) -> B C D
+B (RIDDLE) -> E C D
+C (RIDDLE) -> D E 
+D (DEAD END) ->
+E (RIDDLE) -> D F
+F (DESTINATION) ->
+
+================================
+       LEARN PATHFINDER
+================================
+Selected Level: 1
+1. Display Level Graph
+2. Display Adjacency List
+3. Demonstrate BFS
+4. Demonstrate DFS
+5. Search for a Node
+6. Find Shortest Route
+7. Learn Graph Concepts
+0. Exit
+Enter choice: 2
+
+--- ADJACENCY LIST ---
+
+Graph Adjacency List:
+A (START) -> B C D
+B (RIDDLE) -> E C D
+C (RIDDLE) -> D E
+D (DEAD END) ->
+E (RIDDLE) -> D F
+F (DESTINATION) ->
+
+================================
+       LEARN PATHFINDER
+================================
+Selected Level: 1
+1. Display Level Graph
+2. Display Adjacency List
+3. Demonstrate BFS
+4. Demonstrate DFS
+5. Search for a Node
+6. Find Shortest Route
+7. Learn Graph Concepts
+0. Exit
+Enter choice: 3
+
+--- BFS DEMONSTRATION ---
+
+--- BFS STEP-BY-STEP ---
+BFS uses a Queue (FIFO).
+Start node: A
+Queue: A
+
+Step 1
+Dequeue node: A
+Checking neighbours of A:
+  B is unvisited.
+  Mark visited, set parent[B] = A
+  Enqueue B
+  C is unvisited.
+  Mark visited, set parent[C] = A
+  Enqueue C
+  D is unvisited.
+  Mark visited, set parent[D] = A
+  Enqueue D
+Queue now: [B, C, D]
+Visited nodes: {A, B, C, D}
+
+Step 2
+Dequeue node: B
+Checking neighbours of B:
+  E is unvisited.
+  Mark visited, set parent[E] = B
+  Enqueue E
+  C is already visited. Skip.
+  D is already visited. Skip.
+Queue now: [C, D, E]
+Visited nodes: {A, B, C, D, E}
+
+Step 3
+Dequeue node: C
+Checking neighbours of C:
+  D is already visited. Skip.
+  E is already visited. Skip.
+Queue now: [D, E]
+Visited nodes: {A, B, C, D, E}
+
+Step 4
+Dequeue node: D
+Checking neighbours of D:
+Queue now: [E]
+Visited nodes: {A, B, C, D, E}
+
+Step 5
+Dequeue node: E
+Checking neighbours of E:
+  D is already visited. Skip.
+  F is unvisited.
+  Mark visited, set parent[F] = E
+  Enqueue F
+Queue now: [F]
+Visited nodes: {A, B, C, D, E, F}
+
+Step 6
+Dequeue node: F
+Destination reached!
+
+Reconstructing path using parent array:
+Shortest path: A -> B -> E -> F
+BFS shortest route: A -> B -> E -> F
+
+================================
+       LEARN PATHFINDER
+================================
+Selected Level: 1
+1. Display Level Graph
+2. Display Adjacency List
+3. Demonstrate BFS
+4. Demonstrate DFS
+5. Search for a Node
+6. Find Shortest Route
+7. Learn Graph Concepts
+0. Exit
+Enter choice: 4
+
+--- DFS DEMONSTRATION ---
+
+--- DFS STEP-BY-STEP ---
+DFS uses a Stack (LIFO).
+Start node: A
+Initial stack: [Bottom A Top]
+
+Step 1
+Pop node: A
+Visit node: A
+Checking neighbours of A:
+  Push D
+  Push C
+  Push B
+Stack now: [Bottom D, C, B Top]
+Visited nodes: {A}
+
+Step 2
+Pop node: B
+Visit node: B
+Checking neighbours of B:
+  Push D
+  Push C
+  Push E
+Stack now: [Bottom D, C, D, C, E Top]
+Visited nodes: {A, B}
+
+Step 3
+Pop node: E
+Visit node: E
+Checking neighbours of E:
+  Push F
+  Push D
+Stack now: [Bottom D, C, D, C, F, D Top]
+Visited nodes: {A, B, E}
+
+Step 4
+Pop node: D
+Visit node: D
+This node is a DEAD END.
+Checking neighbours of D:
+Stack now: [Bottom D, C, D, C, F Top]
+Visited nodes: {A, B, D, E}
+
+Step 5
+Pop node: F
+Visit node: F
+This node is the DESTINATION.
+Checking neighbours of F:
+Stack now: [Bottom D, C, D, C Top]
+Visited nodes: {A, B, D, E, F}
+
+Step 6
+Pop node: C
+Visit node: C
+Checking neighbours of C:
+  E already visited. Skip.
+  D already visited. Skip.
+Stack now: [Bottom D, C, D Top]
+Visited nodes: {A, B, C, D, E, F}
+
+Step 7
+Pop node: D
+Already visited. Skip processing.
+
+Step 8
+Pop node: C
+Already visited. Skip processing.
+
+Step 9
+Pop node: D
+Already visited. Skip processing.
+
+DFS traversal completed.
+
+================================
+       LEARN PATHFINDER
+================================
+Selected Level: 1
+1. Display Level Graph
+2. Display Adjacency List
+3. Demonstrate BFS
+4. Demonstrate DFS
+5. Search for a Node
+6. Find Shortest Route
+7. Learn Graph Concepts
+0. Exit
+Enter choice: 5
+Enter node ID (A, B, C...): D
+Node found!
+ID: D
+Type: DEAD END
+Connected nodes:
+
+
+================================
+       LEARN PATHFINDER
+================================
+Selected Level: 1
+1. Display Level Graph
+2. Display Adjacency List
+3. Demonstrate BFS
+4. Demonstrate DFS
+5. Search for a Node
+6. Find Shortest Route
+7. Learn Graph Concepts
+0. Exit
+Enter choice: 5
+Enter node ID (A, B, C...): A
+Node found!
+ID: A
+Type: START
+Question: What is 5 * 3?
+Connected nodes:
+B C D
+
+================================
+       LEARN PATHFINDER
+================================
+Selected Level: 1
+1. Display Level Graph
+2. Display Adjacency List
+3. Demonstrate BFS
+4. Demonstrate DFS
+5. Search for a Node
+6. Find Shortest Route
+7. Learn Graph Concepts
+0. Exit
+Enter choice: 6
+
+--- FIND SHORTEST ROUTE USING BFS ---
+Enter source node ID (A, B, C...): B
+Enter destination node ID (A, B, C...): E
+
+Finding shortest path from B to E
+
+--- BFS STEP-BY-STEP ---
+BFS uses a Queue (FIFO).
+Start node: B
+Queue: B
+
+Step 1
+Dequeue node: B
+Checking neighbours of B:
+  E is unvisited.
+  Mark visited, set parent[E] = B
+  Enqueue E
+  C is unvisited.
+  Mark visited, set parent[C] = B
+  Enqueue C
+  D is unvisited.
+  Mark visited, set parent[D] = B
+  Enqueue D
+Queue now: [E, C, D]
+Visited nodes: {B, C, D, E}
+
+Step 2
+Dequeue node: E
+Destination reached!
+
+Reconstructing path using parent array:
+Shortest path: B -> E
+Shortest route found!
+Number of edges: 1
+
+================================
+       LEARN PATHFINDER
+================================
+Selected Level: 1
+1. Display Level Graph
+2. Display Adjacency List
+3. Demonstrate BFS
+4. Demonstrate DFS
+5. Search for a Node
+6. Find Shortest Route
+7. Learn Graph Concepts
+0. Exit
+Enter choice: 6
+
+--- FIND SHORTEST ROUTE USING BFS ---
+Enter source node ID (A, B, C...): A
+Enter destination node ID (A, B, C...): E
+
+Finding shortest path from A to E
+
+--- BFS STEP-BY-STEP ---
+BFS uses a Queue (FIFO).
+Start node: A
+Queue: A
+
+Step 1
+Dequeue node: A
+Checking neighbours of A:
+  B is unvisited.
+  Mark visited, set parent[B] = A
+  Enqueue B
+  C is unvisited.
+  Mark visited, set parent[C] = A
+  Enqueue C
+  D is unvisited.
+  Mark visited, set parent[D] = A
+  Enqueue D
+Queue now: [B, C, D]
+Visited nodes: {A, B, C, D}
+
+Step 2
+Dequeue node: B
+Checking neighbours of B:
+  E is unvisited.
+  Mark visited, set parent[E] = B
+  Enqueue E
+  C is already visited. Skip.
+  D is already visited. Skip.
+Queue now: [C, D, E]
+Visited nodes: {A, B, C, D, E}
+
+Step 3
+Dequeue node: C
+Checking neighbours of C:
+  D is already visited. Skip.
+  E is already visited. Skip.
+Queue now: [D, E]
+Visited nodes: {A, B, C, D, E}
+
+Step 4
+Dequeue node: D
+Checking neighbours of D:
+Queue now: [E]
+Visited nodes: {A, B, C, D, E}
+
+Step 5
+Dequeue node: E
+Destination reached!
+
+Reconstructing path using parent array:
+Shortest path: A -> B -> E
+Shortest route found!
+Number of edges: 2
+
+================================
+       LEARN PATHFINDER
+================================
+Selected Level: 1
+1. Display Level Graph
+2. Display Adjacency List
+3. Demonstrate BFS
+4. Demonstrate DFS
+5. Search for a Node
+6. Find Shortest Route
+7. Learn Graph Concepts
+0. Exit
+Enter choice: 7
+
+--- GRAPH CONCEPTS ---
+Vertex: Each question or special location.
+Edge: A connection between two nodes.
+Directed graph: Edges represent directional movement.
+Adjacency list: Stores each node's neighbours.
+BFS: Explores nodes using a queue.
+DFS: Explores nodes using a stack.
+Path: A sequence of connected nodes.
+Reachability: Whether a node can be reached.
+Dead end: A node where the attempt terminates.
+Gameplay movement follows the selected answer's predefined nextNodes entry.
+
+================================
+       LEARN PATHFINDER
+================================
+Selected Level: 1
+1. Display Level Graph
+2. Display Adjacency List
+3. Demonstrate BFS
+4. Demonstrate DFS
+5. Search for a Node
+6. Find Shortest Route
+7. Learn Graph Concepts
+0. Exit
+Enter choice: 0
+Exiting learning mode.

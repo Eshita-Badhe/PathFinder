@@ -1,3 +1,25 @@
+/*
+MiniProject
+
+Group:
+UCE2026001
+UCE2026002
+UCE2026004
+UCE2026007
+
+Problem Statement: PathFinder – Graph-Based Math Puzzle Game
+PathFinder is designed as a Java-based, graph-driven mathematical puzzle game consisting of progressively challenging levels, 
+each containing set of questions. 
+The game represents questions and locations as nodes and possible movements as directed edges, 
+using an adjacency list to store graph connections. 
+Players navigate through the graph by selecting answers, with correct and incorrect choices leading to different paths, 
+dead ends, or the final destination. 
+The system also incorporates hints, score tracking, and a learning mode that demonstrates graph visualization, node searching, 
+Breadth-First Search (BFS), Depth-First Search (DFS), and shortest-path finding, making graph algorithms and mathematical 
+problem-solving interactive and engaging.
+*/
+
+
 package Miniproject;
 import java.util.*;
 import java.io.*;

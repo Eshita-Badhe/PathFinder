@@ -7,6 +7,5 @@ PLAYER_NAME = Eshita
 ACTION = LEARN
 # Allowed actions: PLAY / LEARN
 
-LEVEL = 3
+LEVEL = 1
 # Allowed levels: 1 (Easy), 2 (Medium), 3 (Hard)
-# LEVEL is used only when ACTION = PLAY.
